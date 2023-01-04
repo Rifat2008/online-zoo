@@ -549,3 +549,98 @@ main {
     right: 0;
     bottom: 0;
 }
+
+/*--------- Pick and feed a friend ----------*/
+
+.feed {
+    padding: 70px 0px 100px 0px;
+    background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, 
+    #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), 
+    linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, 
+    rgba(243, 169, 248, 0.66) 50.74%, 
+    #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), 
+    linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, 
+    rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+    opacity: 0.9;
+}
+
+.feed__body {
+    padding: 41px 0px 59px 0px;
+    background: rgba(253, 253, 255, 0.52);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feed__title {
+    font-size: 48px;
+    line-height: 120%;
+    text-align: center;
+    color: #FE9013;
+    margin-bottom: 30px;
+}
+
+.feed__text-1 {
+    font-size: 24px;
+    line-height: 120%;
+    margin-bottom: 40px;
+}
+
+.feed__text-2 {
+    font-weight: 500;
+    line-height: 130%;
+    margin-bottom: 10px;
+}
+
+.feed__text-3 {
+    max-width: 863px;
+    line-height: 130%;
+    margin-bottom: 60px;
+}
+
+.feed__subtitle {
+    font-size: 36px;
+    line-height: 130%;
+    margin-bottom: 40px;
+}
+
+.pay-feed {
+    max-width: 770px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.pay-feed > *:not(:last-child) {
+    margin-right: 28px;
+}
+
+.pay-feed__card {
+    
+}
+
+.pay-feed__wrap {
+    min-width: 168px;
+    min-height: 168px;
+    background-color: #FFFFFF;
+    border: 1px solid #FA6F32;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.pay-feed__arrow {
+    margin-top: 62px;
+}
+
+.pay-feed__title {
+    line-height: 140%;
+    max-width: 168px;
+    
+}
