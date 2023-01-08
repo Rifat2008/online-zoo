@@ -307,7 +307,6 @@ main {
 
 .watch {
     position: relative;
-    /*background-image: url("../../assets/images/giant-panda.jpg");*/
 }
 
 .watch__body {
@@ -320,7 +319,9 @@ main {
 
 .watch__content {
     padding-right: 73px;
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 
 .watch__circle {
