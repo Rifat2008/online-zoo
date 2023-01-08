@@ -130,7 +130,14 @@ body {
     font-family: 'Roboto';
     font-style: normal;
     background-color: #FFFFFF;
+    scroll-behavior: smooth;
+}
 
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 ._container {
@@ -271,8 +278,16 @@ header {
     transition: color 0.5s;
 }
 
+._active {
+    color: #FE9013;
+}
+
 .menu__link:hover {
     color: #4B9200;
+}
+
+._active:hover {
+    color: #FE9013;
 }
 
 .header__designed {
@@ -340,11 +355,14 @@ main {
     font-weight: 500;
     font-size: 16px;
     line-height: 140%;
-    text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
     background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
     border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     transition: .5s;
 }
 
@@ -604,6 +622,12 @@ main {
     margin-bottom: 60px;
 }
 
+.feed__link {
+    line-height: 130%;
+    color: #333B41;
+    border-bottom: 1px solid #FE9013;
+}
+
 .feed__subtitle {
     font-size: 36px;
     line-height: 130%;
@@ -854,6 +878,15 @@ footer {
     color: #FFFFFF;
 }
 
+.subscribe__input:focus {
+    border: 0.7px solid #4B9200;
+}
+
+.subscribe__input:focus:invalid {
+    border: 0.7px solid #D31414;
+    color: #D31414;
+}
+
 ::-webkit-input-placeholder {
     line-height: 140%;
     color: #BDBDBD;
@@ -875,9 +908,14 @@ footer {
     width: 129px;
     height: 42px;
     background: #F1F3F2;
-    border: 1px solid #4B9200;
+    border: 1px solid #333B41;
     border-radius: 5px;
     line-height: 140%;
+    color: #000000;
+}
+
+.subscribe__button:hover, .subscribe__button:active {
+    border: 1px solid #4B9200;
     color: #4B9200;
 }
 
@@ -888,8 +926,14 @@ footer {
     transition: .3s;
 }
 
+.design-link > *:first-child {
+    margin-bottom: 10px;
+}
+
 .design-link:hover, .design-link:active {
     color: #4B9200;
     text-decoration: underline;
     cursor: pointer;
 }
+
+
