@@ -388,7 +388,6 @@ main {
 }
 
 .watch__body {
-    
     position: relative;
     z-index: 2;
     display: flex;
@@ -1618,7 +1617,6 @@ footer {
 .footer__left {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .footer-logo {
@@ -1827,6 +1825,9 @@ footer {
     }
     .footer__container {
         justify-content: center;
+    }
+    .footer__left {
+        align-items: center;
     }
     .social {
         position: static;
