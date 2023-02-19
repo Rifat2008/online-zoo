@@ -2,11 +2,17 @@
     <footer class="footer"> 
         <div class="footer__container _container">
             <div class="footer__left">
-                <a href="#" class="header__logo footer-logo">
-                    <h2 class="header__logo-title">PetStory online</h2>
-                    <img src="../../assets/images/icons/bamboo.png" alt="bamboo" class="header__logo-icon">
-                </a>
-                <a href="../donate/index.html" class="section-button rectangle-button">donate for volunteers</a>
+                
+                <div href="" class="header__logo footer-logo">
+                    <router-link :to="{name: 'main'}">
+                        <h1 class="header__logo-title">PetStory online</h1>
+                        <img src="../../assets/images/icons/bamboo.png" alt="bamboo" class="header__logo-icon">
+                    </router-link>
+                </div>
+                <router-link :to="{name: 'donate'}">
+                    <div class="rectangle-button">donate for volunteers</div>
+                </router-link>
+                
                 <div class="footer__social social">
                     <a href="https://www.facebook.com/" class="social__link">
                         <div class="social__wrap-icon">
@@ -35,7 +41,9 @@
                 </div>
             </div>
             <div class="footer__center">
-                <a href="../main/index.html" class="footer_links">About</a>
+                <router-link :to="{name: 'main'}">
+                    <span class="footer_links">About</span>
+                </router-link>
                 <a href="" class="footer_links">Map</a>
                 <a href="" class="footer_links">Zoos</a>
                 <a href="" class="footer_links">Contact us</a>

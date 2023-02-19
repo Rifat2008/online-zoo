@@ -1,30 +1,23 @@
 <template>
     <div class="popup_wrapper" ref="popup-wrapper">
         <div class="popup">
-            <div class="popup__header">
-                <span>{{popupTitle}}</span>
-                <span>
-                    <i 
-                        class="material-icons"
-                        @click="closePopup"
-                        >close
-                    </i>
-                </span>
-            </div>
-            <div class="popup__content">
-                <slot></slot>
-            </div>
-            <div class="popup__footer">
-                <button 
-                    class="close_modal"
-                    @click="closePopup"
-                    >Close
-                </button>
-                <button 
-                    class="submit_btn"
-                    @click="action"
-                    >{{submitBtnTitle}}
-                </button>
+            <span class="popup__close-icon" @click="closePopup">
+                <img src="../../assets/images/icons/close-icon.svg" alt="close-icon">
+            </span>
+            <div class="testimonials__card testimonial">
+                <div class="testimonial__header">
+                    <img 
+                        :src="require('../../assets/images/pictures/avatars/' + testimonialData.avatar)" 
+                        alt="user-avatar" 
+                        class="testimonial__user-avatar">
+                    <div class="testimonial__user-info">
+                        <p class="testimonial__user-name">{{ testimonialData.name }}</p>
+                        <p class="testimonial__user-add">
+                            Local {{ testimonialData.local }} &#183; {{ testimonialData.time }}
+                        </p>
+                    </div>
+                </div>
+                <p class="testimonial__text">{{ testimonialData.text }}</p>
             </div>
         </div>
     </div>
@@ -34,14 +27,12 @@
 <script>
     export default {
         props: {
-            popupTitle: {
-                type: String,
-                default: 'Popup name'
-            },
-            submitBtnTitle: {
-                type: String,
-                default: 'Ok'
+            testimonialData: {
+            type: Object,
+            default() {
+                return {}
             }
+        }
         },
         methods: {
             closePopup() {
@@ -75,38 +66,22 @@
         background-color: rgba($color: #000000, $alpha: .4);
     }
     .popup {
-        padding: $padding*2;
-        position: fixed;
-        z-index: 10;
-        width: 400px;
-        top: 25%;
-        left: 25%;
-        background-color: #ffffff;
-        box-shadow: 0 0 17px 0 #e7e7e7;
-        &__header, &__footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        &__content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .material-icons {
-            cursor: pointer;
-        }
-        .submit_btn {
-            padding: $padding;
-            color: #fff;
-            background-color: green;
-            cursor: pointer;
-        }
-        .close_modal {
-            padding: $padding;
-            color: #fff;
-            background-color: red;
-            cursor: pointer;
-        }
+        position: relative;
     }
+    .popup__close-icon {
+        position: absolute;
+        right: -20px;
+        top: -7px;
+        cursor: pointer;
+    }
+    .popup .testimonial {
+        max-width: 268px;
+        max-height: 391px;
+        padding: 15px 15px 18px 16px;
+    }
+    .popup .testimonial__text {
+        max-height: 309px;
+        overflow: scroll;
+    }
+
 </style>
