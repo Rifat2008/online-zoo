@@ -6,11 +6,11 @@
 </template>
 
 <script>
-    import donateWatch from './sections/donateWatch.vue';
-    import donateFeed from './sections/donateFeed.vue'
+    import DonateWatch from './sections/DonateWatch.vue';
+    import DonateFeed from './sections/DonateFeed.vue'
 
     export default {
-        components: { donateWatch, donateFeed },
+        components: { DonateWatch, DonateFeed },
         name: 'donate-page'
     }
 </script>

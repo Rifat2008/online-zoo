@@ -21,16 +21,38 @@
                     <p class="donate-feed__amount-title">Amount</p>
                     <div class="donate-feed__bar">
                         <ul class="donate-feed__bar-line bar-line">
-                            <li class="bar-line__circle"></li>
-                            <li class="bar-line__circle"></li>
-                            <li class="bar-line__circle">
-                                <img src="../../../assets/images/icons/roller-icon.png" alt="roller-icon" class="bar-line__selected">
-                            </li>
-                            <li class="bar-line__circle"></li>
-                            <li class="bar-line__circle"></li>
-                            <li class="bar-line__circle"></li>
-                            <li class="bar-line__circle"></li>
-                            <li class="bar-line__circle"></li>
+                            <donate-circle 
+                                :isSelected="active === 5000 ? true : false"
+                                @action="active = 5000"
+                            ></donate-circle>
+                            <donate-circle 
+                                :isSelected="active === 2000 ? true : false"
+                                @action="active = 2000"
+                            ></donate-circle>
+                            <donate-circle 
+                                :isSelected="active === 1000 ? true : false"
+                                @action="active = 1000"
+                            ></donate-circle>
+                            <donate-circle 
+                                :isSelected="active === 500 ? true : false"
+                                @action="active = 500"
+                            ></donate-circle>
+                            <donate-circle 
+                                :isSelected="active === 250 ? true : false"
+                                @action="active = 250"
+                            ></donate-circle>
+                            <donate-circle 
+                                :isSelected="active === 100 ? true : false"
+                                @action="active = 100"
+                            ></donate-circle>
+                            <donate-circle 
+                                :isSelected="active === 50 ? true : false"
+                                @action="active = 50"
+                            ></donate-circle>
+                            <donate-circle 
+                                :isSelected="active === 25 ? true : false"
+                                @action="active = 25"
+                            ></donate-circle>
                         </ul>
                     </div>
                     <ul class="donate-feed__amount-values">
@@ -69,7 +91,13 @@
                     </ul>
                 </div>
                 <div class="donate-feed__input-wrap">
-                    <input type="number" class="donate-feed__amount-input" placeholder="Another amount" min="0">
+                    <input 
+                        type="number" 
+                        class="donate-feed__amount-input" 
+                        placeholder="Another amount" 
+                        min="0"
+                        v-model="active"
+                    >
                     <img src="../../../assets/images/icons/usd-icon.png" alt="usd-icon" class="usd-icon">
                 </div>
                 <div class="donate-feed__input-radio">
@@ -90,7 +118,19 @@
 </template>
 
 <script>
+    import DonateCircle from '../elements/DonateCircle'
+
     export default {
         name: 'donate-feed',
+        components: { DonateCircle },
+        data() {
+            return {
+                isVisible: true,
+                active: 0
+            }
+        },
+        mounted() {
+            
+        }
     }
 </script>

@@ -15,7 +15,11 @@
                     <ul class="menu__list">
                         <li class="menu__item">
                             <router-link :to="{name: 'main'}">
-                                <span class="menu__link _active">about</span>
+                                <span 
+                                    class="menu__link"
+                                    :class="{ _active: currentRouteName === 'main' }"
+                                    >about
+                                </span>
                             </router-link> 
                         </li>
                         <li class="menu__item">
@@ -26,7 +30,11 @@
                         </li>
                         <li class="menu__item">
                             <router-link :to="{name: 'donate'}">
-                                <span class="menu__link">donate</span>
+                                <span 
+                                    class="menu__link"
+                                    :class="{ _active: currentRouteName === 'donate' }"
+                                    >donate
+                                </span>
                             </router-link>
                         </li>
                         <li class="menu__item">
@@ -40,7 +48,6 @@
 </template>
 
 <script>
-    //import { mapActions } from 'vuex';
 
     export default {
         name: 'the-header',
@@ -54,7 +61,9 @@
             
         },
         computed: {
-
+            currentRouteName() {
+                return this.$route.name;
+            }
         }
     }
 </script>
