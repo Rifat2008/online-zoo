@@ -1,6 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  publicPath: '/online-zoo/',
+  publicPath: '/main',
   transpileDependencies: true,
   lintOnSave: false,
   css: {
