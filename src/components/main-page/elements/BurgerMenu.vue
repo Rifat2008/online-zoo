@@ -2,40 +2,41 @@
     <div class="popup_wrapper" ref="popup-wrapper">
         <div class="burger-menu">
             <div class="burger-menu__logo">
-                <router-link :to="{name: 'main'}">
+                <router-link :to="{name: 'main'}" @click="closeBurgerMenu">
                     <h1 class="burger-menu__title">PetStory online</h1>
                     <img src="@/assets/images/icons/bamboo-orange.png" alt="bamboo" class="burger-menu__icon">
                 </router-link>
             </div>
             <ul class="burger-menu__list">
                 <li class="burger-menu__item">
-                    <router-link :to="{name: 'main'}" class="burger-menu__link">         
+                    <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
                         about
                     </router-link> 
                 </li>
                 <li class="burger-menu__item">
-                    <router-link :to="{name: 'main'}" class="burger-menu__link">         
+                    <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
                         map
                     </router-link> 
                 </li>
                 <li class="burger-menu__item">
-                    <router-link :to="{name: 'main'}" class="burger-menu__link">         
+                    <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
                         zoos
                     </router-link> 
                 </li>
                 <li class="burger-menu__item">
-                    <router-link :to="{name: 'donate'}" class="burger-menu__link">         
+                    <router-link :to="{name: 'donate'}" class="burger-menu__link" @click="closeBurgerMenu">         
                         donate
                     </router-link> 
                 </li>
                 <li class="burger-menu__item">
-                    <router-link :to="{name: 'main'}" class="burger-menu__link" >         
+                    <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
                         contact us
                     </router-link> 
                 </li>
                 <li class="burger-menu__item">
                     <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks" 
                         class="burger-menu__link"
+                        @click="closeBurgerMenu"
                         >Designed by <span>&copy;</span>
                     </a>
                 </li>
