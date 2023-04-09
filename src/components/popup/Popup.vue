@@ -64,6 +64,7 @@
         bottom: 0;
         height: 100vh;
         background-color: rgba($color: #000000, $alpha: .4);
+        z-index: 1000;
     }
     .popup {
         position: relative;

@@ -357,6 +357,9 @@ header {
 
 
 @media (max-width: 710px) {
+  .header__container {
+    width: 100%;
+  }
   .menu__list, .header__designed {
       display: none;
   }

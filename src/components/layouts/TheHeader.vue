@@ -1,15 +1,18 @@
 <template>
     <header class="header">
         <div class="header__container _container">
-                
-                <div href="" class="header__logo">
+                <BurgerMenu 
+                    v-if="isBurgerMenuVisible"
+                    @closeBurgerMenu="closeMenu"
+                />
+                <div class="header__logo">
                     <router-link :to="{name: 'main'}">
                         <h1 class="header__logo-title">PetStory online</h1>
                         <img src="../../assets/images/icons/bamboo.png" alt="bamboo" class="header__logo-icon">
                     </router-link>
                 </div>
                 <nav class="header__menu menu">
-                    <div class="menu__icon">
+                    <div class="menu__icon" @click="burgerMenuShow()">
                         <span class="hamburger__line"></span>
                     </div>
                     <ul class="menu__list">
@@ -48,21 +51,35 @@
 </template>
 
 <script>
+    import BurgerMenu from '../main-page/elements/BurgerMenu.vue';
 
     export default {
         name: 'the-header',
-        props: {},
         data() {
             return {
-               
+                isBurgerMenuVisible: false
             }
         },
-        methods: {
-            
-        },
+        components: {BurgerMenu},
         computed: {
             currentRouteName() {
                 return this.$route.name;
+            }
+        },
+        methods: {
+            burgerMenuShow() {
+                this.isBurgerMenuVisible = true;
+                document.body.classList.add("stop-scrolling");
+                window.addEventListener("keydown", (e) => {
+                    if (e.keyCode === 27) {
+                        this.isBurgerMenuVisible = false;
+                        document.body.classList.remove("stop-scrolling");
+                    }
+                });
+            },
+            closeMenu() {
+                this.isBurgerMenuVisible = false;
+                document.body.classList.remove("stop-scrolling");
             }
         }
     }

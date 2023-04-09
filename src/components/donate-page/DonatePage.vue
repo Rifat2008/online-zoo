@@ -6,8 +6,8 @@
 </template>
 
 <script>
-    import DonateWatch from './sections/DonateWatch.vue';
-    import DonateFeed from './sections/DonateFeed.vue'
+    import DonateWatch from './sections/donateWatch.vue';
+    import DonateFeed from './sections/donateFeed.vue';
 
     export default {
         components: { DonateWatch, DonateFeed },
