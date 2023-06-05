@@ -2,7 +2,7 @@
     <header class="header">
         <div class="header__container _container">
                 <BurgerMenu 
-                    v-if="isBurgerMenuVisible"
+                    :isBurgerMenuVisible="isBurgerMenuVisible"
                     @closeBurgerMenu="closeMenu"
                 />
                 <div class="header__logo">

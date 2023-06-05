@@ -1,69 +1,72 @@
 <template>
-    <div class="popup_wrapper" ref="popup-wrapper">
-        <div class="burger-menu">
-            <div class="burger-menu__logo">
-                <router-link :to="{name: 'main'}" @click="closeBurgerMenu">
-                    <h1 class="burger-menu__title">PetStory online</h1>
-                    <img src="@/assets/images/icons/bamboo-orange.png" alt="bamboo" class="burger-menu__icon">
-                </router-link>
+    <transition name="move">
+        <div class="popup_wrapper" ref="popup-wrapper" v-if="isBurgerMenuVisible">
+            <div class="burger-menu">
+                <div class="burger-menu__logo">
+                    <router-link :to="{name: 'main'}" @click="closeBurgerMenu">
+                        <h1 class="burger-menu__title">PetStory online</h1>
+                        <img src="@/assets/images/icons/bamboo-orange.png" alt="bamboo" class="burger-menu__icon">
+                    </router-link>
+                </div>
+                <ul class="burger-menu__list">
+                    <li class="burger-menu__item">
+                        <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
+                            about
+                        </router-link> 
+                    </li>
+                    <li class="burger-menu__item">
+                        <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
+                            map
+                        </router-link> 
+                    </li>
+                    <li class="burger-menu__item">
+                        <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
+                            zoos
+                        </router-link> 
+                    </li>
+                    <li class="burger-menu__item">
+                        <router-link :to="{name: 'donate'}" class="burger-menu__link" @click="closeBurgerMenu">         
+                            donate
+                        </router-link> 
+                    </li>
+                    <li class="burger-menu__item">
+                        <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
+                            contact us
+                        </router-link> 
+                    </li>
+                    <li class="burger-menu__item">
+                        <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks" 
+                            class="burger-menu__link"
+                            @click="closeBurgerMenu"
+                            >Designed by <span>&copy;</span>
+                        </a>
+                    </li>
+                </ul>
+                <span class="burger-menu__close-icon" @click="closeBurgerMenu">
+                    <img src="@/assets/images/icons/close-icon.svg" alt="close-icon">
+                </span>
             </div>
-            <ul class="burger-menu__list">
-                <li class="burger-menu__item">
-                    <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
-                        about
-                    </router-link> 
-                </li>
-                <li class="burger-menu__item">
-                    <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
-                        map
-                    </router-link> 
-                </li>
-                <li class="burger-menu__item">
-                    <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
-                        zoos
-                    </router-link> 
-                </li>
-                <li class="burger-menu__item">
-                    <router-link :to="{name: 'donate'}" class="burger-menu__link" @click="closeBurgerMenu">         
-                        donate
-                    </router-link> 
-                </li>
-                <li class="burger-menu__item">
-                    <router-link :to="{name: 'main'}" class="burger-menu__link" @click="closeBurgerMenu">         
-                        contact us
-                    </router-link> 
-                </li>
-                <li class="burger-menu__item">
-                    <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks" 
-                        class="burger-menu__link"
-                        @click="closeBurgerMenu"
-                        >Designed by <span>&copy;</span>
-                    </a>
-                </li>
-            </ul>
-            <span class="burger-menu__close-icon" @click="closeBurgerMenu">
-                <img src="@/assets/images/icons/close-icon.svg" alt="close-icon">
-            </span>
         </div>
-    </div>
+    </transition>
 </template>
 
 <script>
 export default {
-        methods: {
-            closeBurgerMenu() {
-                    this.$emit('closeBurgerMenu');
-                }
-            },
-        mounted() {
-            let vm = this;
-            document.addEventListener('click', function(item) {
-                if (item.target === vm.$refs['popup-wrapper']) {
-                    vm.closeBurgerMenu();
-                }
-            });
-        }
+    props: ['isBurgerMenuVisible'],
+    methods: {
+        closeBurgerMenu() {
+                this.$emit('closeBurgerMenu');
+            }
+        },
+    mounted() {
+        let vm = this;
+        document.addEventListener('click', function(item) {
+            if (item.target === vm.$refs['popup-wrapper']) {
+                vm.closeBurgerMenu();
+            }
+        });
     }
+}
 </script>
 
 <style scoped>
@@ -112,6 +115,17 @@ export default {
         right: 20px;
         top: 20px;
         cursor: pointer;
+    }
+
+    .move-enter-active, .move-leave-active
+    {
+        transition: all 1s ease-in-out;
+    }
+    .move-enter-from, .move-leave-to {
+        transform: translateX(100%);
+    }
+    .move-leave-to {
+        opacity: 0;
     }
 </style>
 
